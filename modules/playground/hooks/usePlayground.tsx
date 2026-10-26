@@ -28,7 +28,11 @@ export const usePlayground = (id: string): UsePlaygroundReturn => {
   const [error, setError] = useState<string | null>(null);
 
   const loadPlayground = useCallback(async () => {
-    if (!id) return;
+    if (!id || id === "undefined") {
+      setError("Invalid playground ID. Please return to the dashboard to select or create a project.");
+      setIsLoading(false);
+      return;
+    }
 
     try {
       setIsLoading(true);

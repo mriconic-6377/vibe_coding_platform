@@ -301,9 +301,14 @@ const MainPlaygroundPage = () => {
           Something went wrong
         </h2>
         <p className="text-gray-600 mb-4">{error}</p>
-        <Button onClick={() => window.location.reload()} variant="destructive">
-          Try Again
-        </Button>
+        <div className="flex gap-3">
+          <Button onClick={() => window.location.reload()} variant="destructive">
+            Try Again
+          </Button>
+          <Button onClick={() => (window.location.href = "/dashboard")} variant="outline">
+            Back to Dashboard
+          </Button>
+        </div>
       </div>
     );
   }
